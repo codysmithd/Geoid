@@ -9,14 +9,18 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
+enum direction {
     NORTH,
     SOUTH,
     EAST,
     WEST
-} direction;
+};
 
 @interface GGA : NSObject
+
+- (id) init;
+
+- (void) readFromData:(NSString *) data;
 
 // UTC Time (hhmmss.sss)
 @property (assign) NSString* time;
@@ -25,13 +29,13 @@ typedef enum {
 @property (assign) float latitude;
 
 // North/South indicator
-@property (assign) direction n_s;
+@property (assign) enum direction n_s;
 
 // Longitude
 @property (assign) float longitude;
 
 // East/West indicator
-@property (assign) direction e_w;
+@property (assign) enum direction e_w;
 
 // Position fix indicator
 @property (assign) int pos_fix_indicator;
@@ -45,23 +49,23 @@ typedef enum {
 // MSL Altitude
 @property (assign) float msl;
 
-// MSL Altitude Units (typically M for meters)
+// MSL Altitude Units (always M for meters)
 @property (assign) NSString* msl_units;
 
 // Geoid Separation
 @property (assign) float geoid_separation;
 
-// Geoid Separation Units (typically M for meters)
+// Geoid Separation Units (always M for meters)
 @property (assign) NSString* geoid_separation_units;
 
-// Age of diff correction, if enabled. Time in seconds since last DGPS update
+// Age of diff correction, if enabled, time in seconds since last DGPS update
 @property (assign) float dgps_age;
 
 // DGPS Station ID
 @property (assign) int dgps_station_id;
 
-// Message checksum
-@property (assign) NSString* checksum;
+// Message checksum is correct or not
+@property (assign) bool checksum;
 
 
 @end
