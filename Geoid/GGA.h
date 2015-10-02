@@ -16,9 +16,13 @@ enum direction {
     WEST
 };
 
+static NSString* const GGA_HEADER = @"$GPGGA";
+
 @interface GGA : NSObject
 
 - (id) init;
+
+- (id) initFromData:(NSString *) data;
 
 - (void) readFromData:(NSString *) data;
 

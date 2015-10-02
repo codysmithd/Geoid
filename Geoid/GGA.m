@@ -34,9 +34,15 @@
     return self;
 }
 
+- (id) initFromData:(NSString *)data {
+    self = [self init];
+    [self readFromData:data];
+    return self;
+}
+
 - (void) readFromData:(NSString *)data {
     NSArray *elements = [data componentsSeparatedByString: @","];
-    if ([elements[0] isEqualToString: @"$GPGGA"] && [elements count] == 15) {
+    if ([elements[0] isEqualToString: GGA_HEADER] && [elements count] == 15) {
         
         // Do checksum
         NSArray *checksumSplit = [elements[14] componentsSeparatedByString:@"*"];

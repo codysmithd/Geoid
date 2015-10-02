@@ -10,6 +10,8 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
+// Array of all GGA messages to save
+@property NSMutableArray *GGAArray;
 
 @end
 

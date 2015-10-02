@@ -17,12 +17,27 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    GGA *testGGA = [[GGA alloc] init];
-    [testGGA readFromData:@"$GPGGA,192035.000,4305.0972,N,07740.6950,W,1,08,0.9,169.8,M,-34.4,M,,0000*6B"];
+    self.GGAArray = [[NSMutableArray alloc] init];
+    [self addDataFromFile:@"test_data"];
+    NSLog(@"Number of GGA messages: %lu", [self.GGAArray count]);
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
+}
+
+- (void) addDataFromFile:(NSString *)filePath {
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:filePath ofType:@"txt"];
+    NSString *content = [NSString stringWithContentsOfFile:bundlePath encoding:NSUTF8StringEncoding error:nil];
+    NSArray *lines = [content componentsSeparatedByString: @"\n"];
+    for (NSString *line in lines) {
+        
+        NSArray *contents = [line componentsSeparatedByString:@","];
+        if([contents[0] isEqualToString: GGA_HEADER]) {
+            [self.GGAArray addObject:[[GGA alloc] initFromData:line]];
+        }
+    }
+
 }
 
 @end
