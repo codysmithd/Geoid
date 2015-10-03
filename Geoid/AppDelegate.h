@@ -13,5 +13,8 @@
 // Array of all GGA messages to save
 @property NSMutableArray *GGAArray;
 
+// Open Text Data File menu item
+- (IBAction)openTextDataFile:(id)sender;
+
 @end
 

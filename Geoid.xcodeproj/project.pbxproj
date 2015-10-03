@@ -23,9 +23,9 @@
 		C3B668431BBEE8920046A078 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3B668461BBEE8930046A078 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C3B668481BBEE8930046A078 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3EB6D761BBEF1A000CF0A4A /* GGA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGA.h; path = Geoid/GGA.h; sourceTree = "<group>"; };
-		C3EB6D771BBEF1A000CF0A4A /* GGA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GGA.m; path = Geoid/GGA.m; sourceTree = "<group>"; };
-		C3EB6D7E1BBF4E4800CF0A4A /* test_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test_data.txt; path = Geoid/test_data.txt; sourceTree = "<group>"; };
+		C3EB6D761BBEF1A000CF0A4A /* GGA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGA.h; sourceTree = "<group>"; };
+		C3EB6D771BBEF1A000CF0A4A /* GGA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGA.m; sourceTree = "<group>"; };
+		C3EB6D7E1BBF4E4800CF0A4A /* test_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_data.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,9 +42,6 @@
 		C3B668311BBEE8920046A078 = {
 			isa = PBXGroup;
 			children = (
-				C3EB6D761BBEF1A000CF0A4A /* GGA.h */,
-				C3EB6D771BBEF1A000CF0A4A /* GGA.m */,
-				C3EB6D7E1BBF4E4800CF0A4A /* test_data.txt */,
 				C3B6683C1BBEE8920046A078 /* Geoid */,
 				C3B6683B1BBEE8920046A078 /* Products */,
 			);
@@ -61,6 +58,8 @@
 		C3B6683C1BBEE8920046A078 /* Geoid */ = {
 			isa = PBXGroup;
 			children = (
+				C3EB6D811BBF58AD00CF0A4A /* Test */,
+				C3EB6D801BBF588800CF0A4A /* Data Objects */,
 				C3B6683D1BBEE8920046A078 /* AppDelegate.h */,
 				C3B6683E1BBEE8920046A078 /* AppDelegate.m */,
 				C3B668431BBEE8920046A078 /* Assets.xcassets */,
@@ -77,6 +76,23 @@
 				C3B668411BBEE8920046A078 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C3EB6D801BBF588800CF0A4A /* Data Objects */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB6D761BBEF1A000CF0A4A /* GGA.h */,
+				C3EB6D771BBEF1A000CF0A4A /* GGA.m */,
+			);
+			name = "Data Objects";
+			sourceTree = "<group>";
+		};
+		C3EB6D811BBF58AD00CF0A4A /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB6D7E1BBF4E4800CF0A4A /* test_data.txt */,
+			);
+			name = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

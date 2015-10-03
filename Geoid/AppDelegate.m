@@ -19,17 +19,21 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.GGAArray = [[NSMutableArray alloc] init];
-    [self addDataFromFile:@"test_data"];
-    NSLog(@"Number of GGA messages: %lu", [self.GGAArray count]);
+    //[self addDataFromBundleFile:@"test_data"];
+    //NSLog(@"Number of GGA messages: %lu", [self.GGAArray count]);
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
 }
 
+- (void) addDataFromBundleFile:(NSString *)bundleFileName {
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:bundleFileName ofType:@"txt"];
+    [self addDataFromFile:bundlePath];
+}
+
 - (void) addDataFromFile:(NSString *)filePath {
-    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:filePath ofType:@"txt"];
-    NSString *content = [NSString stringWithContentsOfFile:bundlePath encoding:NSUTF8StringEncoding error:nil];
+    NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     [self.outputDisplay setString:content];
     NSArray *lines = [content componentsSeparatedByString: @"\n"];
     for (NSString *line in lines) {
@@ -41,4 +45,22 @@
 
 }
 
+- (IBAction)openTextDataFile:(id)sender {
+    NSOpenPanel* openPanel = [NSOpenPanel openPanel];
+    openPanel.title = @"Choose a .TXT file";
+    openPanel.showsResizeIndicator = YES;
+    openPanel.showsHiddenFiles = NO;
+    openPanel.canChooseDirectories = NO;
+    openPanel.canCreateDirectories = YES;
+    openPanel.allowsMultipleSelection = NO;
+    openPanel.allowedFileTypes = @[@"txt"];
+    [openPanel beginWithCompletionHandler:^(NSInteger result){
+        if (result == NSFileHandlingPanelOKButton) {
+            NSURL* selectedDoc = [[openPanel URLs] objectAtIndex:0];
+            [self addDataFromFile: [selectedDoc path]];
+        }
+        
+    }];
+    
+}
 @end
