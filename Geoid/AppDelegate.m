@@ -23,8 +23,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.GGAArray = [[NSMutableArray alloc] init];
-    //[self addDataFromBundleFile:@"test_data"];
-    //NSLog(@"Number of GGA messages: %lu", [self.GGAArray count]);
+    self.GGATableController = [[GGATableViewController alloc] init];
+    [self.GGATableController setData:self.GGAArray];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -46,7 +46,6 @@
             [self.GGAArray addObject:[[GGA alloc] initFromData:line]];
         }
     }
-
 }
 
 - (IBAction)openTextDataFile:(id)sender {

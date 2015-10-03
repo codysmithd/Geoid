@@ -11,6 +11,7 @@
 		C3B668421BBEE8920046A078 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B668411BBEE8920046A078 /* main.m */; };
 		C3B668441BBEE8920046A078 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3B668431BBEE8920046A078 /* Assets.xcassets */; };
 		C3B668471BBEE8930046A078 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3B668451BBEE8930046A078 /* MainMenu.xib */; };
+		C3D944731BBF990600555AE0 /* GGATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D944721BBF990600555AE0 /* GGATableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		C3EB6D781BBEF1A000CF0A4A /* GGA.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EB6D771BBEF1A000CF0A4A /* GGA.m */; settings = {ASSET_TAGS = (); }; };
 		C3EB6D7F1BBF4E4800CF0A4A /* test_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = C3EB6D7E1BBF4E4800CF0A4A /* test_data.txt */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -23,6 +24,8 @@
 		C3B668431BBEE8920046A078 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3B668461BBEE8930046A078 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C3B668481BBEE8930046A078 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3D944711BBF990600555AE0 /* GGATableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGATableViewController.h; sourceTree = "<group>"; };
+		C3D944721BBF990600555AE0 /* GGATableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGATableViewController.m; sourceTree = "<group>"; };
 		C3EB6D761BBEF1A000CF0A4A /* GGA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGA.h; sourceTree = "<group>"; };
 		C3EB6D771BBEF1A000CF0A4A /* GGA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGA.m; sourceTree = "<group>"; };
 		C3EB6D7E1BBF4E4800CF0A4A /* test_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_data.txt; sourceTree = "<group>"; };
@@ -59,7 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				C3EB6D811BBF58AD00CF0A4A /* Test */,
-				C3EB6D801BBF588800CF0A4A /* Data Objects */,
+				C3EB6D801BBF588800CF0A4A /* GGA */,
 				C3B6683D1BBEE8920046A078 /* AppDelegate.h */,
 				C3B6683E1BBEE8920046A078 /* AppDelegate.m */,
 				C3B668431BBEE8920046A078 /* Assets.xcassets */,
@@ -78,13 +81,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C3EB6D801BBF588800CF0A4A /* Data Objects */ = {
+		C3EB6D801BBF588800CF0A4A /* GGA */ = {
 			isa = PBXGroup;
 			children = (
 				C3EB6D761BBEF1A000CF0A4A /* GGA.h */,
 				C3EB6D771BBEF1A000CF0A4A /* GGA.m */,
+				C3D944711BBF990600555AE0 /* GGATableViewController.h */,
+				C3D944721BBF990600555AE0 /* GGATableViewController.m */,
 			);
-			name = "Data Objects";
+			name = GGA;
 			sourceTree = "<group>";
 		};
 		C3EB6D811BBF58AD00CF0A4A /* Test */ = {
@@ -166,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3EB6D781BBEF1A000CF0A4A /* GGA.m in Sources */,
+				C3D944731BBF990600555AE0 /* GGATableViewController.m in Sources */,
 				C3B668421BBEE8920046A078 /* main.m in Sources */,
 				C3B6683F1BBEE8920046A078 /* AppDelegate.m in Sources */,
 			);
