@@ -17,6 +17,10 @@
 
 @implementation AppDelegate
 
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+    return YES;
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.GGAArray = [[NSMutableArray alloc] init];
     //[self addDataFromBundleFile:@"test_data"];
