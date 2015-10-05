@@ -65,16 +65,18 @@
         // Add properties to object from data
         self.utc_time = [[NSString alloc] initWithString: elements[1]];
         self.latitude = [elements[2] floatValue];
-        if ([elements[3] isEqualToString:@"S"]) {
-            self.n_s = SOUTH;
-        } else {
+        self.latitude = self.latitude/100;
+        if ([elements[3] isEqualToString:@"N"]) {
             self.n_s = NORTH;
+        } else {
+            self.n_s = SOUTH;
         }
         self.longitude = [elements[4] floatValue];
-        if ([elements[5] isEqualToString:@"W"]) {
-            self.n_s = WEST;
+        self.longitude = self.longitude/100;
+        if ([elements[5] isEqualToString:@"E"]) {
+            self.e_w = EAST;
         } else {
-            self.n_s = EAST;
+            self.e_w = WEST;
         }
         self.pos_fix_indicator = [elements[6] intValue];
         self.satellites_used = [elements[7] intValue];

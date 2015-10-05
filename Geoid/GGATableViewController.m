@@ -74,11 +74,20 @@
 }
 
 - (void) addPointToMap:(GGA *) gga{
-    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake((long)gga.latitude, (long)gga.longitude);
+    float latitude = gga.latitude;
+    if (gga.n_s == SOUTH) {
+        latitude = latitude * -1;
+    }
+    float longitude = gga.longitude;
+    if(gga.e_w == WEST) {
+        longitude = longitude * -1;
+    }
+    NSLog(@"Lat: %f, Long: %f", latitude, longitude);
+    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(latitude, longitude);
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-    //MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
-    //MKCoordinateRegion region = {coord, span};
-    //[_mapView setRegion:region];
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
+    MKCoordinateRegion region = {coord, span};
+    [_mapView setRegion:region];
     [annotation setCoordinate:coord];
     [_mapView addAnnotation: annotation];
 }
