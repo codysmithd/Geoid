@@ -24,7 +24,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.ggaTableViewController = [[GGATableViewController alloc] initWithTableView:self.tableView];
-    [self addDataFromBundleFile:@"test_data"];
+    //[self addDataFromBundleFile:@"test_data"];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {}
