@@ -7,45 +7,67 @@
 //
 
 #import "GGATableViewController.h"
+#import "GGA.h"
 
 @implementation GGATableViewController
 
-- (void) setData:(NSMutableArray *)newData {
-    _tableContents = newData;
+- (id) initWithTableView:(NSTableView *)tableView {
+    _tableContents = [[NSMutableArray alloc] init];
+    _tableView = tableView;
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    return self;
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return 2;
-    //return [_tableContents count];
+    return [_tableContents count];
 }
 
-- (NSView *)tableView:(NSTableView *)tableView
-   viewForTableColumn:(NSTableColumn *)tableColumn
-                  row:(NSInteger)row {
-    NSLog(@"Called viewForTableColumn");
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex {
+    GGA *gga = [_tableContents objectAtIndex:rowIndex];
+    NSString *identifier = [tableColumn identifier];
     
-    // Get an existing cell with the MyView identifier if it exists
-    NSTextField *result = [tableView makeViewWithIdentifier:@"MyView" owner:self];
-    
-    // There is no existing cell to reuse so create a new one
-    if (result == nil) {
-        
-        // Create the new NSTextField with a frame of the {0,0} with the width of the table.
-        // Note that the height of the frame is not really relevant, because the row height will modify the height.
-        result = [[NSTextField alloc] init];
-        
-        // The identifier of the NSTextField instance is set to MyView.
-        // This allows the cell to be reused.
-        result.identifier = @"MyView";
+    if([identifier isEqualToString:@"time"]){
+        return gga.utc_time;
+    } else if ([identifier isEqualToString:@"latitude"]){
+        if(gga.n_s == NORTH){
+            return [NSString stringWithFormat:@"%f N", gga.latitude];
+        }
+        return [NSString stringWithFormat:@"%f S", gga.latitude];
+    } else if ([identifier isEqualToString:@"longitude"]){
+        if(gga.e_w == EAST){
+            return [NSString stringWithFormat:@"%f E", gga.longitude];
+        }
+        return [NSString stringWithFormat:@"%f W", gga.longitude];
+    } else if ([identifier isEqualToString:@"position_fix_indicator"]){
+        return [NSString stringWithFormat:@"%i", gga.pos_fix_indicator];
+    } else if ([identifier isEqualToString:@"satellites_used"]){
+        return [NSString stringWithFormat:@"%i", gga.satellites_used];
+    } else if ([identifier isEqualToString:@"hdop"]){
+        return [NSString stringWithFormat:@"%f", gga.hdop];
+    } else if ([identifier isEqualToString:@"msl"]){
+        return [NSString stringWithFormat:@"%f %@", gga.msl, gga.msl_units];
+    } else if ([identifier isEqualToString:@"geoid_separation"]){
+        return [NSString stringWithFormat:@"%f %@", gga.geoid_separation, gga.geoid_separation_units];
+    } else if ([identifier isEqualToString:@"dgps_age"]){
+        return [NSString stringWithFormat:@"%f", gga.dgps_age];
+    } else if ([identifier isEqualToString:@"dgps_station_id"]){
+        return [NSString stringWithFormat:@"%i", gga.dgps_station_id];
+    } else if ([identifier isEqualToString:@"checksum"]){
+        if(gga.checksum){
+            return @"Valid";
+        }
+        return @"Invalid";
     }
-    
-    // result is now guaranteed to be valid, either as a reused cell
-    // or as a new cell, so set the stringValue of the cell to the
-    // nameArray value at row
-    result.stringValue = @"Test Cell";
-    
-    return result;
-    
+    return nil;
+}
+
+- (void) addLine:(NSString *)line {
+    NSArray *contents = [line componentsSeparatedByString:@","];
+    if([contents[0] isEqualToString: GGA_HEADER]) {
+        [_tableContents addObject:[[GGA alloc] initFromData:line]];
+        [_tableView reloadData];
+    }
 }
 
 @end

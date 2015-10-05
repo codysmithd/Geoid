@@ -7,12 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import "GGA.h"
 
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
 @property (unsafe_unretained) IBOutlet NSTextView *outputDisplay;
+@property (weak) IBOutlet NSTableView *tableView;
+
 @end
 
 @implementation AppDelegate
@@ -22,32 +23,29 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    self.GGAArray = [[NSMutableArray alloc] init];
-    self.GGATableController = [[GGATableViewController alloc] init];
-    [self.GGATableController setData:self.GGAArray];
+    self.ggaTableViewController = [[GGATableViewController alloc] initWithTableView:self.tableView];
+    [self addDataFromBundleFile:@"test_data"];
 }
 
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
-    // Insert code here to tear down your application
-}
+- (void)applicationWillTerminate:(NSNotification *)aNotification {}
 
+// Add data from test file in bundle. Useful for debugging.
 - (void) addDataFromBundleFile:(NSString *)bundleFileName {
     NSString *bundlePath = [[NSBundle mainBundle] pathForResource:bundleFileName ofType:@"txt"];
     [self addDataFromFile:bundlePath];
 }
 
+// Add data from text file.
 - (void) addDataFromFile:(NSString *)filePath {
     NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     [self.outputDisplay setString:content];
     NSArray *lines = [content componentsSeparatedByString: @"\n"];
     for (NSString *line in lines) {
-        NSArray *contents = [line componentsSeparatedByString:@","];
-        if([contents[0] isEqualToString: GGA_HEADER]) {
-            [self.GGAArray addObject:[[GGA alloc] initFromData:line]];
-        }
+        [self.ggaTableViewController addLine: line];
     }
 }
 
+// Action called when menu option for open text data file.
 - (IBAction)openTextDataFile:(id)sender {
     NSOpenPanel* openPanel = [NSOpenPanel openPanel];
     openPanel.title = @"Choose a .TXT file";
@@ -66,4 +64,5 @@
     }];
     
 }
+
 @end

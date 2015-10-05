@@ -7,14 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "GGA.h"
 
-@interface GGATableViewController : NSWindowController<NSTableViewDelegate,NSTableViewDataSource>
-
-{
-    @private NSMutableArray *_tableContents;
-    @private IBOutlet NSTableView *_tableView;
+@interface GGATableViewController : NSObject <NSTableViewDataSource, NSTableViewDelegate> {
+@private
+    NSMutableArray *_tableContents;
+    NSTableView *_tableView;
 }
 
-- (void) setData:(NSMutableArray *)newData;
-    
+- (id) initWithTableView:(NSTableView *)tableView;
+- (void) addLine:(NSString *)line;
+
 @end

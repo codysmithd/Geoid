@@ -11,9 +11,7 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-// Array of all GGA messages to save
-@property NSMutableArray *GGAArray;
-@property GGATableViewController *GGATableController;
+@property GGATableViewController* ggaTableViewController;
 
 // Open Text Data File menu item
 - (IBAction)openTextDataFile:(id)sender;

@@ -14,7 +14,7 @@
     self = [super init];
     
     if (self) {
-        self.time = @"000000.000";
+        self.utc_time = @"000000.000";
         self.latitude = 0.0;
         self.n_s = NORTH;
         self.longitude = 0.0;
@@ -63,7 +63,7 @@
         self.checksum = (sum == checksum);
         
         // Add properties to object from data
-        self.time = elements[1];
+        self.utc_time = [[NSString alloc] initWithString: elements[1]];
         self.latitude = [elements[2] floatValue];
         if ([elements[3] isEqualToString:@"S"]) {
             self.n_s = SOUTH;
