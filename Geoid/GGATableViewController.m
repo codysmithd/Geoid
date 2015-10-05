@@ -11,11 +11,12 @@
 
 @implementation GGATableViewController
 
-- (id) initWithTableView:(NSTableView *)tableView {
+- (id) initWithData:(NSTableView *)tableView mapView:(MKMapView *)mapView {
     _tableContents = [[NSMutableArray alloc] init];
     _tableView = tableView;
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _mapView = mapView;
     return self;
 }
 
@@ -65,9 +66,21 @@
 - (void) addLine:(NSString *)line {
     NSArray *contents = [line componentsSeparatedByString:@","];
     if([contents[0] isEqualToString: GGA_HEADER]) {
-        [_tableContents addObject:[[GGA alloc] initFromData:line]];
+        GGA* gga = [[GGA alloc] initFromData:line];
+        [_tableContents addObject: gga];
         [_tableView reloadData];
+        [self addPointToMap:gga];
     }
+}
+
+- (void) addPointToMap:(GGA *) gga{
+    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake((long)gga.latitude, (long)gga.longitude);
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    //MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
+    //MKCoordinateRegion region = {coord, span};
+    //[_mapView setRegion:region];
+    [annotation setCoordinate:coord];
+    [_mapView addAnnotation: annotation];
 }
 
 @end

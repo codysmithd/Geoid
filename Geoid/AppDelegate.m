@@ -13,6 +13,7 @@
 @property (weak) IBOutlet NSWindow *window;
 @property (unsafe_unretained) IBOutlet NSTextView *outputDisplay;
 @property (weak) IBOutlet NSTableView *tableView;
+@property (weak) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -23,7 +24,7 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    self.ggaTableViewController = [[GGATableViewController alloc] initWithTableView:self.tableView];
+    self.ggaTableViewController = [[GGATableViewController alloc] initWithData:_tableView mapView:_mapView];
     //[self addDataFromBundleFile:@"test_data"];
 }
 

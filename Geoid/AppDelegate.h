@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "GGATableViewController.h"
+#import <MapKit/MapKit.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 

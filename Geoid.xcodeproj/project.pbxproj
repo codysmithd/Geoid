@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C34DA08B1BC2DDFF0047B5E3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34DA08A1BC2DDFF0047B5E3 /* MapKit.framework */; settings = {ASSET_TAGS = (); }; };
 		C3B6683F1BBEE8920046A078 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B6683E1BBEE8920046A078 /* AppDelegate.m */; };
 		C3B668421BBEE8920046A078 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B668411BBEE8920046A078 /* main.m */; };
 		C3B668441BBEE8920046A078 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3B668431BBEE8920046A078 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C34DA08A1BC2DDFF0047B5E3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = ../../../../../../System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
 		C3B6683A1BBEE8920046A078 /* Geoid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geoid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B6683D1BBEE8920046A078 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C3B6683E1BBEE8920046A078 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -36,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C34DA08B1BC2DDFF0047B5E3 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +48,7 @@
 		C3B668311BBEE8920046A078 = {
 			isa = PBXGroup;
 			children = (
+				C34DA08A1BC2DDFF0047B5E3 /* MapKit.framework */,
 				C3B6683C1BBEE8920046A078 /* Geoid */,
 				C3B6683B1BBEE8920046A078 /* Products */,
 			);

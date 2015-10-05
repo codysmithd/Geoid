@@ -7,15 +7,18 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <MapKit/MapKit.h>
 #import "GGA.h"
 
 @interface GGATableViewController : NSObject <NSTableViewDataSource, NSTableViewDelegate> {
 @private
     NSMutableArray *_tableContents;
     NSTableView *_tableView;
+    MKMapView *_mapView;
 }
 
-- (id) initWithTableView:(NSTableView *)tableView;
+- (id) initWithData:(NSTableView *)tableView mapView:(MKMapView *) mapView;
+- (void) addPointToMap:(double)latitude longitude:(double)longitude;
 - (void) addLine:(NSString *)line;
 
 @end
