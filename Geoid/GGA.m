@@ -63,7 +63,7 @@
         self.checksum = (sum == checksum);
         
         // Add properties to object from data
-        self.utc_time = [[NSString alloc] initWithString: elements[1]];
+        self.utc_time =  [[NSString alloc] initWithFormat:@"%@:%@:%@ UTC", [elements[1] substringWithRange:NSMakeRange(0,2)], [elements[1] substringWithRange:NSMakeRange(2,2)], [elements[1] substringFromIndex:4]];
         self.latitude = [elements[2] floatValue];
         self.latitude = self.latitude/100;
         if ([elements[3] isEqualToString:@"N"]) {
@@ -90,6 +90,41 @@
     } else {
         [NSException raise: @"GGA_ERROR" format:@"Tried to create GGA object with invalid header"];
     }
+}
+
+// Returns a string for the int position fix value
+- (NSString *) getPositionFixString {
+    switch (self.pos_fix_indicator) {
+        case 0:
+            return @"Invalid";
+            break;
+        case 1:
+            return @"GPS Fix (SPS)";
+            break;
+        case 2:
+            return @"DGPS Fix";
+            break;
+        case 3:
+            return @"PPS Fix";
+            break;
+        case 4:
+            return @"Real Time Kinematic";
+            break;
+        case 5:
+            return @"Float RTK";
+            break;
+        case 6:
+            return @"Estimated";
+            break;
+        case 7:
+            return @"Manual Input Mode";
+            break;
+        case 8:
+            return @"Simulation Mode";
+            break;
+        
+    }
+    return [NSString stringWithFormat:@"%i", self.pos_fix_indicator];
 }
 
 @end

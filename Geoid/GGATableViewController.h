@@ -18,7 +18,7 @@
 }
 
 - (id) initWithData:(NSTableView *)tableView mapView:(MKMapView *) mapView;
-- (void) addPointToMap:(double)latitude longitude:(double)longitude;
+- (void) addPointToMap:(GGA *)gga;
 - (void) addLine:(NSString *)line;
 
 @end

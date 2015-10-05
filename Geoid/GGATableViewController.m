@@ -41,7 +41,7 @@
         }
         return [NSString stringWithFormat:@"%f W", gga.longitude];
     } else if ([identifier isEqualToString:@"position_fix_indicator"]){
-        return [NSString stringWithFormat:@"%i", gga.pos_fix_indicator];
+        return [gga getPositionFixString];
     } else if ([identifier isEqualToString:@"satellites_used"]){
         return [NSString stringWithFormat:@"%i", gga.satellites_used];
     } else if ([identifier isEqualToString:@"hdop"]){

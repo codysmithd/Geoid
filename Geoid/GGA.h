@@ -26,6 +26,8 @@ static NSString* const GGA_HEADER = @"$GPGGA";
 
 - (void) readFromData:(NSString *) data;
 
+- (NSString *) getPositionFixString;
+
 // Latitude
 @property (assign) float latitude;
 
