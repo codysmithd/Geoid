@@ -1,12 +1,8 @@
 # Geoid
 Open-source Graphical GPS debugger for OS X
+<img src="http://i.imgur.com/jmYXW3H.png">
 
-*Not yet ready for use*
-
-Geoid processes:
-- Text data from GPS module
-
-This data is then displayed on a GUI for the purpose of debugging, showing:
+Geoid processes text data from GPS module. This data is then displayed on a GUI for the purpose of debugging, showing:
 - GGA:
   - Time in UTC
   - Latitude
@@ -20,3 +16,5 @@ This data is then displayed on a GUI for the purpose of debugging, showing:
   - Height of geoid (mean sea level) above WGS84 ellipsoid
   - Time in seconds since last DGPS update
   - DGPS station ID number
+
+*This project is in Alpha*
