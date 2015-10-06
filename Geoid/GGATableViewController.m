@@ -82,7 +82,6 @@
     if(gga.e_w == WEST) {
         longitude = longitude * -1;
     }
-    NSLog(@"Lat: %f, Long: %f", latitude, longitude);
     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(latitude, longitude);
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
@@ -90,6 +89,12 @@
     [_mapView setRegion:region];
     [annotation setCoordinate:coord];
     [_mapView addAnnotation: annotation];
+}
+
+- (void) clearData {
+    [_tableContents removeAllObjects];
+    [_tableView reloadData];
+    [_mapView removeAnnotations:_mapView.annotations];
 }
 
 @end

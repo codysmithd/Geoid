@@ -25,7 +25,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.ggaTableViewController = [[GGATableViewController alloc] initWithData:_tableView mapView:_mapView];
-    //[self addDataFromBundleFile:@"test_data"];
+    //[self addDataFromBundleFile:@"test_data"]; // for Debugging
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {}
@@ -64,6 +64,11 @@
         
     }];
     
+}
+
+- (IBAction)clearData:(NSButton *)sender {
+    [_outputDisplay setString:@""];
+    [_ggaTableViewController clearData];
 }
 
 @end

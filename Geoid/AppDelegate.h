@@ -14,6 +14,9 @@
 
 @property GGATableViewController* ggaTableViewController;
 
+// Clear data button
+- (IBAction)clearData:(NSButton *)sender;
+
 // Open Text Data File menu item
 - (IBAction)openTextDataFile:(id)sender;
 

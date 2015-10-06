@@ -20,5 +20,6 @@
 - (id) initWithData:(NSTableView *)tableView mapView:(MKMapView *) mapView;
 - (void) addPointToMap:(GGA *)gga;
 - (void) addLine:(NSString *)line;
+- (void) clearData;
 
 @end
