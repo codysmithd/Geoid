@@ -64,15 +64,13 @@
         
         // Add properties to object from data
         self.utc_time =  [[NSString alloc] initWithFormat:@"%@:%@:%@ UTC", [elements[1] substringWithRange:NSMakeRange(0,2)], [elements[1] substringWithRange:NSMakeRange(2,2)], [elements[1] substringFromIndex:4]];
-        self.latitude = [elements[2] doubleValue];
-        self.latitude = self.latitude/100;
+        self.latitude = [self getDegrees:elements[2]];
         if ([elements[3] isEqualToString:@"N"]) {
             self.n_s = NORTH;
         } else {
             self.n_s = SOUTH;
         }
-        self.longitude = [elements[4] doubleValue];
-        self.longitude = self.longitude/100;
+        self.longitude = [self getDegrees:elements[4]];
         if ([elements[5] isEqualToString:@"E"]) {
             self.e_w = EAST;
         } else {
@@ -90,6 +88,19 @@
     } else {
         [NSException raise: @"GGA_ERROR" format:@"Tried to create GGA object with invalid header"];
     }
+}
+
+
+// Get degree value for latitude or longitude from NMEA string
+// 4533.35
+- (double) getDegrees: (NSString *) latOrLong {
+    NSArray *data = [latOrLong componentsSeparatedByString:@"."];
+    int index = (int)[data[0] length] - 2;
+    NSString* min_string = [NSString stringWithFormat:@"%@.%@",[latOrLong substringWithRange:NSMakeRange(index, 2)], data[1]];
+    double min =[min_string doubleValue];
+    double deg = [[latOrLong substringToIndex:index] doubleValue];
+    NSLog(@"NMEA String: %@; Degrees:%f, Min:%f", latOrLong, deg, min);
+    return deg + (min/60);
 }
 
 // Returns a string for the int position fix value
