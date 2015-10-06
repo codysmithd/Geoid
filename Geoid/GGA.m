@@ -64,14 +64,14 @@
         
         // Add properties to object from data
         self.utc_time =  [[NSString alloc] initWithFormat:@"%@:%@:%@ UTC", [elements[1] substringWithRange:NSMakeRange(0,2)], [elements[1] substringWithRange:NSMakeRange(2,2)], [elements[1] substringFromIndex:4]];
-        self.latitude = [elements[2] floatValue];
+        self.latitude = [elements[2] doubleValue];
         self.latitude = self.latitude/100;
         if ([elements[3] isEqualToString:@"N"]) {
             self.n_s = NORTH;
         } else {
             self.n_s = SOUTH;
         }
-        self.longitude = [elements[4] floatValue];
+        self.longitude = [elements[4] doubleValue];
         self.longitude = self.longitude/100;
         if ([elements[5] isEqualToString:@"E"]) {
             self.e_w = EAST;
@@ -80,12 +80,12 @@
         }
         self.pos_fix_indicator = [elements[6] intValue];
         self.satellites_used = [elements[7] intValue];
-        self.hdop = [elements[8] floatValue];
-        self.msl = [elements[9] floatValue];
+        self.hdop = [elements[8] doubleValue];
+        self.msl = [elements[9] doubleValue];
         self.msl_units = elements[10];
-        self.geoid_separation = [elements[11] floatValue];
+        self.geoid_separation = [elements[11] doubleValue];
         self.geoid_separation_units = elements[12];
-        self.dgps_age = [elements[13] floatValue];
+        self.dgps_age = [elements[13] doubleValue];
         self.dgps_station_id = [checksumSplit[0] intValue];
     } else {
         [NSException raise: @"GGA_ERROR" format:@"Tried to create GGA object with invalid header"];

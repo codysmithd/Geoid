@@ -29,7 +29,7 @@ static NSString* const GGA_HEADER = @"$GPGGA";
 - (NSString *) getPositionFixString;
 
 // Latitude
-@property (assign) float latitude;
+@property (assign) double latitude;
 
 // UTC Time (hhmmss.sss)
 @property (strong) NSString* utc_time;
@@ -38,7 +38,7 @@ static NSString* const GGA_HEADER = @"$GPGGA";
 @property (assign) enum direction n_s;
 
 // Longitude
-@property (assign) float longitude;
+@property (assign) double longitude;
 
 // East/West indicator
 @property (assign) enum direction e_w;
@@ -50,7 +50,7 @@ static NSString* const GGA_HEADER = @"$GPGGA";
 @property (assign) int satellites_used;
 
 // HDOP (Horizontal Dilution of Precision)
-@property (assign) float hdop;
+@property (assign) double hdop;
 
 // MSL Altitude
 @property (assign) float msl;
@@ -59,13 +59,13 @@ static NSString* const GGA_HEADER = @"$GPGGA";
 @property (strong) NSString* msl_units;
 
 // Geoid Separation
-@property (assign) float geoid_separation;
+@property (assign) double geoid_separation;
 
 // Geoid Separation Units (always M for meters)
 @property (strong) NSString* geoid_separation_units;
 
 // Age of diff correction, if enabled, time in seconds since last DGPS update
-@property (assign) float dgps_age;
+@property (assign) double dgps_age;
 
 // DGPS Station ID
 @property (assign) int dgps_station_id;
