@@ -1,6 +1,6 @@
 # Geoid
 Open-source Graphical GPS debugger for OS X
-<img src="http://i.imgur.com/jmYXW3H.png">
+<img src="http://i.imgur.com/YTiOALI.png">
 
 Geoid processes text data from GPS module. This data is then displayed on a GUI for the purpose of debugging, showing:
 - GGA:
