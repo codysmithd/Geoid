@@ -99,7 +99,6 @@
     NSString* min_string = [NSString stringWithFormat:@"%@.%@",[latOrLong substringWithRange:NSMakeRange(index, 2)], data[1]];
     double min =[min_string doubleValue];
     double deg = [[latOrLong substringToIndex:index] doubleValue];
-    NSLog(@"NMEA String: %@; Degrees:%f, Min:%f", latOrLong, deg, min);
     return deg + (min/60);
 }
 

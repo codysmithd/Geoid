@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C347D0851BC486400086CE02 /* ORSSerial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C347D0821BC485370086CE02 /* ORSSerial.framework */; };
 		C34DA08B1BC2DDFF0047B5E3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C34DA08A1BC2DDFF0047B5E3 /* MapKit.framework */; settings = {ASSET_TAGS = (); }; };
 		C3B6683F1BBEE8920046A078 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B6683E1BBEE8920046A078 /* AppDelegate.m */; };
 		C3B668421BBEE8920046A078 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B668411BBEE8920046A078 /* main.m */; };
@@ -15,9 +16,29 @@
 		C3D944731BBF990600555AE0 /* GGATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D944721BBF990600555AE0 /* GGATableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		C3EB6D781BBEF1A000CF0A4A /* GGA.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EB6D771BBEF1A000CF0A4A /* GGA.m */; settings = {ASSET_TAGS = (); }; };
 		C3EB6D7F1BBF4E4800CF0A4A /* test_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = C3EB6D7E1BBF4E4800CF0A4A /* test_data.txt */; settings = {ASSET_TAGS = (); }; };
+		C3EEE4751BC49F3D006819BD /* SerialConnectWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EEE4731BC49F3D006819BD /* SerialConnectWindowController.m */; settings = {ASSET_TAGS = (); }; };
+		C3EEE4761BC49F3D006819BD /* SerialConnectWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3EEE4741BC49F3D006819BD /* SerialConnectWindow.xib */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C347D0811BC485370086CE02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C347D07C1BC485370086CE02 /* ORSSerialPort.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9DCA89121A2BB106009285EB;
+			remoteInfo = ORSSerial;
+		};
+		C347D0831BC485370086CE02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C347D07C1BC485370086CE02 /* ORSSerialPort.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D7472131B6D7767002D8B10;
+			remoteInfo = "ORSSerialPort Tests";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		C347D07C1BC485370086CE02 /* ORSSerialPort.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ORSSerialPort.xcodeproj; path = "Frameworks/ORSSerialPort/Framework Project/ORSSerialPort.xcodeproj"; sourceTree = "<group>"; };
 		C34DA08A1BC2DDFF0047B5E3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = ../../../../../../System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
 		C3B6683A1BBEE8920046A078 /* Geoid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geoid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B6683D1BBEE8920046A078 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -31,6 +52,9 @@
 		C3EB6D761BBEF1A000CF0A4A /* GGA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGA.h; sourceTree = "<group>"; };
 		C3EB6D771BBEF1A000CF0A4A /* GGA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGA.m; sourceTree = "<group>"; };
 		C3EB6D7E1BBF4E4800CF0A4A /* test_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_data.txt; sourceTree = "<group>"; };
+		C3EEE4721BC49F3D006819BD /* SerialConnectWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialConnectWindowController.h; sourceTree = "<group>"; };
+		C3EEE4731BC49F3D006819BD /* SerialConnectWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialConnectWindowController.m; sourceTree = "<group>"; };
+		C3EEE4741BC49F3D006819BD /* SerialConnectWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SerialConnectWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C347D0851BC486400086CE02 /* ORSSerial.framework in Frameworks */,
 				C34DA08B1BC2DDFF0047B5E3 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,9 +70,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C347D07D1BC485370086CE02 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C347D0821BC485370086CE02 /* ORSSerial.framework */,
+				C347D0841BC485370086CE02 /* ORSSerialPort Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C3B668311BBEE8920046A078 = {
 			isa = PBXGroup;
 			children = (
+				C347D07C1BC485370086CE02 /* ORSSerialPort.xcodeproj */,
 				C34DA08A1BC2DDFF0047B5E3 /* MapKit.framework */,
 				C3B6683C1BBEE8920046A078 /* Geoid */,
 				C3B6683B1BBEE8920046A078 /* Products */,
@@ -71,6 +106,9 @@
 				C3B6683E1BBEE8920046A078 /* AppDelegate.m */,
 				C3B668431BBEE8920046A078 /* Assets.xcassets */,
 				C3B668451BBEE8930046A078 /* MainMenu.xib */,
+				C3EEE4721BC49F3D006819BD /* SerialConnectWindowController.h */,
+				C3EEE4731BC49F3D006819BD /* SerialConnectWindowController.m */,
+				C3EEE4741BC49F3D006819BD /* SerialConnectWindow.xib */,
 				C3B668481BBEE8930046A078 /* Info.plist */,
 				C3B668401BBEE8920046A078 /* Supporting Files */,
 			);
@@ -149,6 +187,12 @@
 			mainGroup = C3B668311BBEE8920046A078;
 			productRefGroup = C3B6683B1BBEE8920046A078 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C347D07D1BC485370086CE02 /* Products */;
+					ProjectRef = C347D07C1BC485370086CE02 /* ORSSerialPort.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C3B668391BBEE8920046A078 /* Geoid */,
@@ -156,11 +200,29 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		C347D0821BC485370086CE02 /* ORSSerial.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ORSSerial.framework;
+			remoteRef = C347D0811BC485370086CE02 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C347D0841BC485370086CE02 /* ORSSerialPort Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ORSSerialPort Tests.xctest";
+			remoteRef = C347D0831BC485370086CE02 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		C3B668381BBEE8920046A078 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3EEE4761BC49F3D006819BD /* SerialConnectWindow.xib in Resources */,
 				C3B668441BBEE8920046A078 /* Assets.xcassets in Resources */,
 				C3EB6D7F1BBF4E4800CF0A4A /* test_data.txt in Resources */,
 				C3B668471BBEE8930046A078 /* MainMenu.xib in Resources */,
@@ -174,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3EEE4751BC49F3D006819BD /* SerialConnectWindowController.m in Sources */,
 				C3EB6D781BBEF1A000CF0A4A /* GGA.m in Sources */,
 				C3D944731BBF990600555AE0 /* GGATableViewController.m in Sources */,
 				C3B668421BBEE8920046A078 /* main.m in Sources */,

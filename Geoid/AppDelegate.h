@@ -8,7 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "GGATableViewController.h"
+#import "SerialConnectWindowController.h"
 #import <MapKit/MapKit.h>
+#import <ORSSerial/ORSSerial.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
@@ -19,6 +21,9 @@
 
 // Open Text Data File menu item
 - (IBAction)openTextDataFile:(id)sender;
+
+// Open serial connection dialog
+- (IBAction)openSerialConnectionWindow:(id)sender;
 
 @end
 

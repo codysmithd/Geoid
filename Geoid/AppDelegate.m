@@ -14,6 +14,7 @@
 @property (unsafe_unretained) IBOutlet NSTextView *outputDisplay;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet MKMapView *mapView;
+@property (strong) SerialConnectWindowController *serialConnectWindow;
 
 @end
 
@@ -25,7 +26,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.ggaTableViewController = [[GGATableViewController alloc] initWithData:_tableView mapView:_mapView];
-    //[self addDataFromBundleFile:@"test_data"]; // for Debugging
+    [self addDataFromBundleFile:@"test_data"]; // for Debugging
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {}
@@ -64,6 +65,12 @@
         
     }];
     
+}
+
+
+- (IBAction)openSerialConnectionWindow:(id)sender {
+    _serialConnectWindow = [[SerialConnectWindowController alloc] initWithNibAndDelegate:@"SerialConnectWindow" delegate:self];
+    [_serialConnectWindow showWindow:self];
 }
 
 - (IBAction)clearData:(NSButton *)sender {
